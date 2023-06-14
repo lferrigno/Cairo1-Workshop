@@ -3,7 +3,18 @@
 
 fn find_digits(n: u128) -> u128 {
     // TODO: Implementar el contenido de la funcion
-    9
+    let mut digit = 0;
+    let mut div = n;
+    let mut res = 0;
+    loop{
+        if div==0 {
+            break();
+        }
+    digit = div%10;
+    if (digit != 0) && (n%digit == 0) {res+=1;}
+    div = div/10;
+    };
+    res
 }
 
 // Correr los tests usando 'cairo-test ./ejercicios/find_digits.cairo'

@@ -1,9 +1,32 @@
 // Ejercicio 1 - mini-max-sum ⭐ 
 // https://www.hackerrank.com/challenges/mini-max-sum/problem
 
+use array::ArrayTrait;
+use debug::PrintTrait;
+
 fn mini_max_sum(arr: Array<u128>) -> (u128, u128) {
-    // TODO: Implementar el contenido de la funcion
-    (1, 2)
+  // TODO: Implementar el contenido de la funcion
+    
+    let mut min = 0;
+    let mut max = 0;
+    let mut sum = 0;
+    let mut idx = 0;
+    loop {
+        if idx == arr.len() { // Si el indice es igual a la longitud del array
+            break (); // Termina el loop
+        }
+        let num = *arr.at(idx);
+
+        if idx == 0 {
+            min = num
+        }
+
+        min = if (min<num){ min} else{ num};
+        max = if (max>num) { max} else{ num};
+        sum += num;
+        idx += 1; // Incrementa el indice
+    };
+    (sum-max, sum-min)
 }
 
 // Correr los test usando 'cairo-test ./ejercicios/mini_max_sum.cairo'
